@@ -1,0 +1,27 @@
+ 
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+{% form_theme formulario 'bootstrap_5_layout.html.twig' %}
+
+ {% block nav %}
+        {{parent()}}
+ {% endblock %}
+
+
+{% block layout %}
+
+   <h4>{{ errorMensaje}}</h4>
+                <div class="container-fluid mt-5">
+                            <div class="row justify-content-center" >
+                        <div class="col-4  bg-dark">
+                        <h3 class="mb-5" id="titulo">Insertar Usuario</h3> 
+                        {{form(formulario)}}
+                        </div>
+                </div>
+        </div>
+      
+
+        {% endblock %}

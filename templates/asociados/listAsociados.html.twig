@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+
+
+
+ {% block nav %}
+        {{parent()}}
+{% endblock %}
+
+{% block layout %}
+
+          <main class="inner cover">
+            <div class="container">
+              <div class="row border-bottom" style="height: 60vh; overflow-y: scroll;">
+         
+                <!-- tabla -->
+                  <table class="table table-dark">
+                 <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellidos</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Profesion</th>
+                      <th scope="col">Año de Nacimiento</th>
+                      <th scope="col">email</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                 {% for asociado in resultados %}
+              
+                      <tr>
+                        <td>{{asociado.getNombre()}}</td>
+                        <td>{{asociado.getApellidos()}}</td>
+                        <td>{{asociado.getTelefono()}}</td>
+                        <td>{{asociado.getProfesion()}}</td>
+                        <td>{{asociado.getAnyoNac()}}</td>
+                         <td>{{asociado.getEmail()}}</td>
+                         <td>  <a href="listasociados/delete/{{asociado.getId()}}" class="btn btn-secondary btn-sm">Borrar</a></td>
+                         <td>  <a href="listasociados/update/{{asociado.getId()}}" class="btn btn-secondary btn-sm">Modificar</a></td>
+                        
+                      </tr>
+                  
+                 {% endfor %}
+                <!-- tablA end -->
+                </tbody>
+                </table>
+              </div>
+            </div>
+            <a href="asociados" class="btn btn-secondary mt-4">⋘ Back</a>
+          </main>
+
+
+  {% endblock %}

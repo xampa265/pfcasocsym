@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+     
+{% block nav %}
+{% endblock %}
+
+
+{% block layout %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card"  id="tarjeta">
+                    <div class="card bg-dark m-5 p-4" id="micard" >
+                        <img class="card-img-top" src="css/images/cuentas.png" alt="Icono precio" id="icono">
+                            <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">Aquí podrás realizar todas las acciones relacionadas con las cuentas </p>
+                                    <a href="cuentas" class="btn btn-primary">Ir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" id="tarjeta">
+                        <div class="card bg-dark m-5 p-4"  id="micard">
+                            <img class="card-img-top" src="css/images/asoc.png" alt="icono personal" id="icono">
+                            <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">Aquí podrás realizar las acciones relacionadas con los asociados </p>
+                                    <a href="asociados" class="btn btn-primary">Ir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

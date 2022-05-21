@@ -1,0 +1,29 @@
+ 
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+
+{% block nav %}
+{{parent()}}
+{% endblock %}
+        
+{% block layout %}
+
+
+        <div class="container mt-5">
+             <div class="row justify-content-md-center">
+                   <div class="col-md-auto">
+                        <a href="meses" class="btn btn-dark">Resumen de Movimientos</a>
+                    </div>
+                   <div class="col-md-auto">
+                          <a href="insertcuentas" class="btn btn-dark">InsertarCuentas</a>
+                    </div>
+                   <div class="col-md-auto">
+                       <a href="insertmovimientos" class="btn btn-dark">Insertar Movimientos</a>
+                     </div>
+                </div>
+            </div>
+        
+ {% endblock %}

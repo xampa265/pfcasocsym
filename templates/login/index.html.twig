@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+    
+{% block bootstrap %}
+        {{parent()}}
+{% endblock %}
+
+    
+ {% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}"  />
+{% endblock %}
+
+
+         {% block nav %}
+   
+         {% endblock %}
+
+
+        {% block layout %}
+   
+
+             {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+             {% endif %}
+
+                        <body>
+                                <main  class="container my-auto ">
+                                    <div class="row">
+                                        <div id="login" class="col-lg-4  offset-lg-4 col-md-6 offset-md-3 col-12  mt-5">
+                                            <img class="img-fluid mx-auto d-block  m-5"  src="css/images/sesion2.png" width="100px" id="sesion" />
+                                            <form  class="mb-3 p-2" action="{{ path('login') }}" method="post" >
+                                                    <div  class="mb-3">
+                                                        <label for="username" class="form-label" id="etiqueta">Username:</label>
+                                                        <input type="text" id="username"class="form-control"  name="_username" value="{{ last_username }}"/>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="password" class="form-label" id="etiqueta">Password:</label>
+                                                        <input type="password" class="form-control" id="password" name="_password"/>
+                                                    </div>
+                                                            {# If you want to control the URL the user is redirected to on success#}
+                                                        <input type="hidden" name="_target_path" value="/dashboard"/> 
+
+                                                        <button type="submit"  class="btn btn-primary">login</button>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </main>
+                        </body>
+
+        {% endblock %}

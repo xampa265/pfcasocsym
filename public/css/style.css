@@ -1,0 +1,65 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
+
+/*
+ * Base structure
+ */
+a:hover{
+  color: inherit
+}
+html,
+body {
+  height: 100%;
+  
+}
+body {
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+}
+
+.link:hover{
+  color: #fff !important;
+}
+
+#titulo{
+  color: rgb(255, 255, 255);
+}
+
+#icono{
+    height:50%;
+    width: 30%;
+    align-self: center;
+    margin-top: 5%;
+}
+
+#micard{
+      border-radius:1em;
+}
+
+.card-text{
+  color: rgb(255, 252, 249);
+}
+#content{
+  text-align: center;
+}
+#tituloAsociado{
+  color:white;
+}
+#tarjeta{
+  border: #fff;
+}
+label{
+  color: #fff;
+}
+#etiqueta{
+  color: black;
+}
+ 
+#movimientos{
+  text-align: left;
+}

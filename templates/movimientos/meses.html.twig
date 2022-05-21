@@ -1,0 +1,36 @@
+
+{% extends "base.html.twig" %}
+
+
+{% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+
+ {% block nav %}
+        {{parent()}}
+{% endblock %}
+
+
+{% block layout %}
+<div class="mx-auto" >
+        <div class="d-grid gap-2 d-md-block mt-5" >
+                    <a href="meses/1" class="btn btn-dark">Enero</a>
+                    <a href="meses/2" class="btn btn-dark">Febrero</a>
+                    <a href="meses/3" class="btn btn-dark">Marzo</a>
+                    <a href="meses/4" class="btn btn-dark">Abril</a>
+            </div>           
+             <div class="d-grid gap-2 d-md-block mt-5" >
+                    <a href="meses/5" class="btn btn-dark">Mayo</a>
+                     <a href="meses/6" class="btn btn-dark">Junio</a>
+                     <a href="meses/7" class="btn btn-dark">Julio</a>
+                     <a href="meses/8" class="btn btn-dark">Agosto</a>
+             </div>
+              <div class="d-grid gap-2 d-md-block mt-5" > 
+                    <a href="meses/9" class="btn btn-dark">Septiembre</a>
+                    <a href="meses/10" class="btn btn-dark">Octubre</a>
+                    <a href="meses/11" class="btn btn-dark">Noviembre</a>
+                    <a href="meses/12" class="btn btn-dark">Diciembre</a>
+                </div>
+	  <a href="cuentas" class="btn btn-secondary mt-4">⋘ Back</a>
+</div>
+ {% endblock %}

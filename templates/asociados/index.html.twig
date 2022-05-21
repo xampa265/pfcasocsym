@@ -1,0 +1,18 @@
+ {% extends "base.html.twig" %}
+
+ {% block stylesheet %}
+        <link rel= "stylesheet" href="{{asset ('css/style.css') }}" />
+{% endblock %}
+
+
+
+
+{% block layout %}
+
+    <div class="d-grid gap-2 d-md-block mt-5" >
+        <a href="listasociados" class="btn btn-dark">Listar asociados</a>
+        <a href="insertasociados" class="btn btn-dark">Insertar asociados</a>
+        <a href="registro" class="btn btn-dark">Crear Usuario</a>
+     </div>                 
+     
+{% endblock %}
