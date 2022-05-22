@@ -48,8 +48,9 @@ class AsociadosRepository extends ServiceEntityRepository
         $asociado->setPoblacion("Admin");
         $asociado->setProvincia("Admin");
         $asociado->setCuenta("Admin");
-        $asociado->setAnyoNac("Admin");
+        $asociado->setAnyoNac("1234");
 
+        
 
          $this->getEntityManager()->persist($asociado);
          $this->getEntityManager()->flush();
