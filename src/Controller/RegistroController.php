@@ -17,7 +17,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class RegistroController extends AbstractController
 {
     #[Route('/registro', name: 'registro')]
-   public function index(Request $request,  $passwordHasher): Response
+   public function index(Request $request,  UserPasswordHasherInterface $passwordHasher): Response
     {
         $user=new user();
         $form=$this->createForm(UserType::class,$user);
