@@ -35,17 +35,15 @@ class MovimientosController extends AbstractController
            $mes=intval(substr($fecha,5,2 ));
            
            $cuenta=$em->getRepository(Cuenta::class)->find(1);
-
-         
-
+      
 
            if($cuenta==null){
             
-                 return $this->render('movimientos/index.html.twig', [
-                    'errorMensaje'=>"Debes crear una cuenta  primero",
-                    'controller_name' => 'InsertAsociadosController',
-                     'formulario'=>$form->createView()
-        ]);
+                     return $this->render('movimientos/index.html.twig', [
+                            'errorMensaje'=>"Debes crear una cuenta  primero",
+                             'controller_name' => 'InsertAsociadosController',
+                             'formulario'=>$form->createView()
+                        ]);
             
            }else{
                  $movimiento->setSaldo($saldo);
@@ -59,7 +57,7 @@ class MovimientosController extends AbstractController
                  $em->persist($movimiento);
                  $em->flush();
 
-            $this->addFlash('exito', 'Se ha registrado exitosamente');
+            $this->addFlash('exito', 'Se ha insertado correctamente');
             return $this->redirectToRoute('insertmovimientos');
 
            }
