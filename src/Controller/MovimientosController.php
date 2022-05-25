@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Util\Debug;
 
 
 class MovimientosController extends AbstractController
@@ -34,21 +35,40 @@ class MovimientosController extends AbstractController
            $mes=intval(substr($fecha,5,2 ));
            
            $cuenta=$em->getRepository(Cuenta::class)->find(1);
-           $movimiento->setSaldo($saldo);
-           $movimiento->setMes($mes);
+
+         
+
+
+           if($cuenta==null){
+            
+                 return $this->render('movimientos/index.html.twig', [
+                    'errorMensaje'=>"Debes crear una cuenta  primero",
+                    'controller_name' => 'InsertAsociadosController',
+                     'formulario'=>$form->createView()
+        ]);
+            
+           }else{
+                 $movimiento->setSaldo($saldo);
+                 $movimiento->setMes($mes);
               
-            if($tipo=="G"){
-                 $importe=$importe*(-1);
-            } 
-           $movimiento->setImporte($importe);
-           $movimiento->setCuenta($cuenta);
-           $em->persist($movimiento);
-           $em->flush();
+                if($tipo=="G"){
+                         $importe=$importe*(-1);
+                } 
+                 $movimiento->setImporte($importe);
+                $movimiento->setCuenta($cuenta);
+                 $em->persist($movimiento);
+                 $em->flush();
 
             $this->addFlash('exito', 'Se ha registrado exitosamente');
             return $this->redirectToRoute('insertmovimientos');
+
+           }
+
+
+           
         }
         return $this->render('movimientos/index.html.twig', [
+             'errorMensaje'=>"",
             'controller_name' => 'InsertAsociadosController',
            'formulario'=>$form->createView()
         ]);
