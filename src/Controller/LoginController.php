@@ -17,10 +17,11 @@ class LoginController extends AbstractController
     {
         // get the login error if there is one
          $error = $authenticationUtils->getLastAuthenticationError();
-// cuando carga la pagina he de comprobar que la bbdd tiene usuario
+        // cuando carga la pagina he de comprobar que la bbdd tiene usuario
          $em=$this->getDoctrine()->getManager();
          $user=$em->getRepository(User::class)->findAll();
            if(count($user) ==0) {
+
                      //no esta admin debo crear asociado y user 
                        //me voy a repo
                      $asociado= $em->getRepository(Asociados::class)->crearAdmin();

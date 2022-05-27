@@ -21,7 +21,7 @@ class MovimientosController extends AbstractController
         $em=$this->getDoctrine()->getManager();
       
 
-          $movimiento=new Movimientos();
+         $movimiento=new Movimientos();
          $form=$this->createForm(MovimientosType::class,$movimiento);
          $form->handleRequest($request);
           if($form->isSubmitted() && $form->isValid()){ 
@@ -67,8 +67,8 @@ class MovimientosController extends AbstractController
         }
         return $this->render('movimientos/index.html.twig', [
              'errorMensaje'=>"",
-            'controller_name' => 'InsertAsociadosController',
-           'formulario'=>$form->createView()
+             'controller_name' => 'InsertAsociadosController',
+            'formulario'=>$form->createView()
         ]);
     }
 
@@ -101,10 +101,10 @@ class MovimientosController extends AbstractController
            }
 
         return $this->render('movimientos/VerMes.html.twig', [
-            'mes' => $mes,
+           'mes' => $mes,
            'saldo'=>json_encode( $saldo),
            'importe'=>json_encode($importe),
-            'fecha'=>json_encode( $fecha)
+           'fecha'=>json_encode( $fecha)
         ]);
     }
 

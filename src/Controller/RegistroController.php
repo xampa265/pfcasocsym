@@ -35,16 +35,16 @@ class RegistroController extends AbstractController
 
                     if(count($idUser) ==0)          {
                        $hashedPassword = $passwordHasher->hashPassword( $user, $plaintextPassword );
-                        $user->setPassword($hashedPassword);
-                         $user->setRoles(['ROLE_USER']);
-                        $em->persist($user);
-                         $em->flush();
+                       $user->setPassword($hashedPassword);
+                       $user->setRoles(['ROLE_USER']);
+                       $em->persist($user);
+                       $em->flush();
                         $this->addFlash('exito', 'Se ha registrado exitosamente');
                         return $this->redirectToRoute('dashboard');
                  }  else{
                       return $this->render('registro/index.html.twig', [
-                                  'errorMensaje'=>"Ese asociado ya tiene usuario elige otro",
-                                  'controller_name' => "crear usuario nuevo",
+                                 'errorMensaje'=>"Ese asociado ya tiene usuario elige otro",
+                                 'controller_name' => "crear usuario nuevo",
                                  'formulario'=>$form->createView()
         ]);
                  }                                   
@@ -53,7 +53,7 @@ class RegistroController extends AbstractController
                   
         }
          return $this->render('registro/index.html.twig', [
-                  'errorMensaje'=>"",
+                 'errorMensaje'=>"",
                  'controller_name' => "crear usuario nuevo",
                  'formulario'=>$form->createView()
         ]);

@@ -40,7 +40,7 @@ class AsociadosRepository extends ServiceEntityRepository
     }
     public function crearAdmin(){
 
-         $asociado=new Asociados();
+        $asociado=new Asociados();
 
         $asociado->setNombre("Admin");
         $asociado->setApellidos("Admin");

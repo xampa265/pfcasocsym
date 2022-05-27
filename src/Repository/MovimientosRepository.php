@@ -59,10 +59,7 @@ if($tipo=="G"){
      $saldo=$saldoAnterior+$importe;
 }
 
-// //
-//  echo "<pre>";
-//         Debug::dump($saldoAnterior);
-//         die(); 
+
 return $saldo;
     }
 //    /**

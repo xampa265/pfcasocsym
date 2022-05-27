@@ -71,17 +71,19 @@ class AsociadosController extends AbstractController
         $asociado=$em->getRepository(Asociados::class)->find($id);
         $form=$this->createForm(AsociadosType::class,$asociado);
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid()){
-            $em=$this->getDoctrine()->getManager();
+             $em=$this->getDoctrine()->getManager();
              $em->persist($asociado);
-            $em->flush();
-            $this->addFlash('exito', 'Se ha registrado exitosamente');
+             $em->flush();
+
+            $this->addFlash('exito', 'Se ha registrado correctamente');
             return $this->redirectToRoute('listasociados');
-             }
-        return $this->render('asociados/update.html.twig', [
-       
-         'formulario'=>$form->createView()
-        ]);
+        }
+
+       return $this->render('asociados/update.html.twig', [
+              'formulario'=>$form->createView()
+         ]);
 
     }
 
