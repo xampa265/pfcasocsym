@@ -49,10 +49,10 @@ class AsociadosController extends AbstractController
         $asociados=$em->getRepository(Asociados::class)->findAll();
 
         return $this->render('asociados/listAsociados.html.twig', [
-             'errorMensaje'=>"",
-            'resultados' => $asociados
+                      'resultados' => $asociados
         ]);
     }
+
     #[Route('/listasociados/delete/{id}', name: 'deleteasociadoid')]
     public function deleteAsociado ( int $id): Response {
         $em=$this->getDoctrine()->getManager();
@@ -75,11 +75,10 @@ class AsociadosController extends AbstractController
 
          }
          else{
-              $asociados=$em->getRepository(Asociados::class)->findAll();
-                 return $this->render('asociados/listAsociados.html.twig', [
-                    'errorMensaje'=>"No se puede Borrar ese asociado porque tiene usuario",
-                     'resultados' => $asociados
-                  ]);
+             
+                 return $this->render('asociados/AsociadosError.html.twig', [
+                    'errorMensaje'=>"No se puede borrar ese asociado porque tiene usuario",
+                       ]);
          }
 
             
