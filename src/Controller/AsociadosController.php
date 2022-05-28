@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 use App\Entity\Asociados;
+use App\Entity\User;
 use App\Form\AsociadosType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Util\Debug;
 
 class AsociadosController extends AbstractController
 {
@@ -47,6 +49,7 @@ class AsociadosController extends AbstractController
         $asociados=$em->getRepository(Asociados::class)->findAll();
 
         return $this->render('asociados/listAsociados.html.twig', [
+             'errorMensaje'=>"",
             'resultados' => $asociados
         ]);
     }
@@ -54,14 +57,33 @@ class AsociadosController extends AbstractController
     public function deleteAsociado ( int $id): Response {
         $em=$this->getDoctrine()->getManager();
          $asociado=$em->getRepository(Asociados::class)->find($id);
-          if (!$asociado) {
-            throw $this->createNotFoundException(
-                'No asociado found for id '.$id
-            );
-        }
-            $em->remove($asociado);
-            $em->flush();
-             return $this->redirectToRoute('listasociados');
+         $user=$em->getRepository(User::class)->findBy(
+                                                        ['asociado' => $id]
+                                                              );
+
+                                           
+         if (!$user){
+                                    
+              if (!$asociado) {
+                 throw $this->createNotFoundException(
+                         'No asociado found for id '.$id
+                    );
+                }
+                 $em->remove($asociado);
+                 $em->flush();
+                 return $this->redirectToRoute('listasociados');
+
+         }
+         else{
+              $asociados=$em->getRepository(Asociados::class)->findAll();
+                 return $this->render('asociados/listAsociados.html.twig', [
+                    'errorMensaje'=>"No se puede Borrar ese asociado porque tiene usuario",
+                     'resultados' => $asociados
+                  ]);
+         }
+
+            
+        
     }
 
 
