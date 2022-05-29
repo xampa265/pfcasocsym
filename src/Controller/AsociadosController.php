@@ -33,7 +33,7 @@ class AsociadosController extends AbstractController
                     $em=$this->getDoctrine()->getManager();
                     $em->persist($asociado);
                     $em->flush();
-                    $this->addFlash('exito', 'Se ha registrado correctamente');
+            
                    return $this->redirectToRoute('listasociados');
         }
         return $this->render('asociados/insert.html.twig', [

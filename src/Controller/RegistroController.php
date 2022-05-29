@@ -39,7 +39,7 @@ class RegistroController extends AbstractController
                        $user->setRoles(['ROLE_USER']);
                        $em->persist($user);
                        $em->flush();
-                        $this->addFlash('exito', 'Se ha registrado exitosamente');
+                 
                         return $this->redirectToRoute('dashboard');
                  }  else{
                       return $this->render('registro/index.html.twig', [
